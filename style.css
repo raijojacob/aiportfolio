@@ -367,7 +367,7 @@ h3 {
 /* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 1.5rem;
 }
@@ -606,33 +606,103 @@ h3 {
     }
 }
 
-/* Responsive adjustments */
+/* =========================================
+ * MOBILE OPTIMIZATIONS (NATIVE APP FEEL)
+ * ========================================= */
 @media (max-width: 768px) {
-    #hero h1 {
-        font-size: 3.5rem; 
+    /* Fluid Container Padding */
+    .container {
+        padding: 6rem 1rem 1rem; 
     }
+
+    /* Dynamic Scaling Typography */
+    #hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem); 
+    }
+    
+    #hero h2 {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+    /* Stacked Full-Width Buttons */
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .btn-glass {
+        width: 100%;
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Optimized Card Padding */
     .glass-panel {
-        padding: 2.5rem;
+        padding: 1.8rem;
+        border-radius: 32px;
+    }
+
+    .glass-panel:hover {
         border-radius: 36px;
     }
+
+    .skill-category {
+        padding: 1.8rem;
+        border-radius: 28px;
+    }
+
+    .skill-category:hover {
+        border-radius: 32px;
+    }
+
+    /* Single Column Grids */
+    .skills-grid, .contact-details {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+
+    /* App-Dock Style Navigation */
     nav {
-        padding: 0.8rem 1rem; 
+        padding: 0.6rem 1rem; 
     }
+
     nav.scrolled {
+        width: calc(100% - 2rem); 
         padding: 0.5rem; 
+        border-radius: 40px;
     }
+
+    /* Hide logo to maximize space for touch targets */
+    .nav-logo {
+        display: none; 
+    }
+
+    /* Spread links evenly across the bottom/top dock */
+    .nav-menu {
+        width: 100%;
+        justify-content: space-around;
+    }
+
     nav a.nav-link {
-        padding: 0.5rem 1rem;
-        margin: 0 0.1rem;
-        min-width: 65px;
+        padding: 0.6rem;
+        min-width: 60px;
+        margin: 0;
     }
+
+    /* Hide text labels, show only icons for an iOS feel */
     nav a.nav-link span {
-        font-size: 0.65rem;
+        display: none; 
     }
-    .nav-logo img {
-        height: 30px; 
-    }
-    .contact-details {
-        grid-template-columns: 1fr;
+
+    nav a.nav-link svg {
+        margin-bottom: 0;
+        width: 22px;
+        height: 22px;
     }
 }
